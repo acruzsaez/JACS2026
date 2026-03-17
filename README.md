@@ -1,5 +1,5 @@
 # JACS2026
-
+[README.txt](https://github.com/user-attachments/files/26070828/README.txt)
 This repository was generated on 2026-03-18 by Alejandro Cruz
 
 GENERAL INFORMATION
@@ -65,7 +65,7 @@ Note: Input files are specified in the order in which they should be executed.
 /CG_profiles_calculations
 	/Inputs
 		 File list:
-              - steep_mini.inp [Initial minimization of the refined model of a given CXCR4 endpoint state]
+                          - steep_mini.inp [Initial minimization of the refined model of a given CXCR4 endpoint state]
 			  - tmd_simulation.inp [TMD simulation to generate intermediate conformations of a given CXCR4 activation process]
 			  - add_mem.inp [Incorporation of implicit membrane and subsequent minimization]
 			  - heating_equil.inp [Heating and equilibration MD simulation for a given intermediate conformation]
