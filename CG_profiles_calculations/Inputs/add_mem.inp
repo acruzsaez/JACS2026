@@ -1,0 +1,30 @@
+../../steep_output/steep_0_3odu_i245a/steep.pdb keepallh keephis
+aa
+      rest_in ../../tmd/output/tmd_3odu_8u4o_i245a/relax_map.rest71
+     addbond 1 8 4062 
+     addbond 1 1344 2604 
+      add_memgrid 126.867   129.276   152.692 Z 50.0 60.0 44.0 0 3.0
+end
+
+enzymix
+  pre_enz
+    iontyp ASP
+    iontyp GLU
+    iontyp LYS
+    iontyp ARG
+   end
+
+    relax
+        md_parm
+            short_log
+            nsteps          2000
+            ss              0.0001
+            temperature     5.0
+            steep_mini      2000
+            gas_phase       1
+            ex_w_center     127.074   128.848   152.76
+            region2a_r      55
+        end
+    end
+end
+end

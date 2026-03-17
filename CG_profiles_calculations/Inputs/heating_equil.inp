@@ -1,0 +1,134 @@
+../../add_mem/3odu_8u4o_i245a/output/add_mem_3odu_8u4o_i245a_15/steep.pdb keepallh keephis
+aa
+      addbond 1 8 4062 #add a disulfide between cys28 and cys274
+     addbond 1 1344 2604 #add a disulfide between cys109 and cys186
+end
+
+enzymix
+  pre_enz
+    iontyp ASP
+    iontyp GLU
+    iontyp LYS
+    iontyp ARG
+   end
+
+    relax
+        rest_out equil_temp100.res
+
+        md_parm
+            short_log
+            nsteps          20000
+            ss              0.001
+            multi_temps     5 50 100
+            ex_w_center     127.074   128.848   152.76
+            region2a_r      55.0
+            gas_phase       1
+            constraint_2    10.0
+	    log_write_fq    100
+      end                                                         
+   end   
+end
+
+enzymix
+  pre_enz
+    rest_in  ./output/equil_3odu_8u4o_i245a_15/equil_temp100.res
+    iontyp ASP
+    iontyp GLU
+    iontyp LYS
+    iontyp ARG
+   end
+
+    relax
+        rest_out equil_temp250.res
+
+        md_parm
+            short_log
+            nsteps          20000
+            ss              0.001
+            multi_temps     150 200 250
+            ex_w_center     127.074   128.848   152.76
+            region2a_r      55.0
+            gas_phase       1
+            constraint_2    5.0
+	    log_write_fq    100
+      end                                                         
+   end   
+end
+
+
+enzymix
+  pre_enz
+    rest_in  ./output/equil_3odu_8u4o_i245a_15/equil_temp250.res
+    iontyp ASP
+    iontyp GLU
+    iontyp LYS
+    iontyp ARG
+   end
+
+    relax
+        rest_out equil_temp300.res
+
+        md_parm
+            short_log
+            nsteps          100000
+            ss              0.001
+            temp            300
+            ex_w_center     127.074   128.848   152.76
+            region2a_r      55.0
+            gas_phase       1
+            constraint_main 5.0
+	    log_write_fq    100
+      end                                                         
+   end   
+end
+
+analyze
+  makepdb
+    residue all
+    file_nm equil_15_temp300.pdb write_connect  
+  end
+end
+
+enzymix
+  pre_enz
+    rest_in  ./output/equil_3odu_8u4o_i245a_15/equil_temp300.res
+    iontyp ASP
+    iontyp GLU
+    iontyp LYS
+    iontyp ARG
+   end
+
+    relax
+        rest_out prod.res
+
+        md_parm
+            short_log
+            nsteps          100000
+            ss              0.001
+            temp            300
+            ex_w_center     127.074   128.848   152.76
+            region2a_r      55.0
+            gas_phase       1
+            constraint_main 5.0
+            movie_co        all
+            movie_fq        1000
+            rest_fq         10000
+	    log_write_fq    100
+      end                                                         
+   end   
+end
+
+analyze
+  makepdb
+    residue all
+    file_nm end.pdb write_connect  
+    end
+
+	viewmovie
+		file_nm ./output/equil_3odu_8u4o_i245a_15/movie.dat
+		view_fq 10000
+		vwall
+		form pdb
+end
+end
+end

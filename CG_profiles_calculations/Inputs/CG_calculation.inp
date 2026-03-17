@@ -1,0 +1,81 @@
+../../equil_prod/3odu_8u4o_i245a/output/equil_3odu_8u4o_i245a_15/movie4.pdb fold2 0 0 0 0 
+
+
+enzymix
+   pre_enz
+    ion_simp_type ASP
+    ion_simp_type GLU
+    ion_simp_type LYS
+    ion_simp_type ARG
+   end
+
+    relax
+      rest_out cgrelax.out
+      md_parm
+	temperature 150 
+	nsteps 20000
+	ss 0.0001
+	gas_phase 1
+        region2a_r  55
+	rest_fq  1000
+	log_write_fq 100
+      end
+   end
+end
+
+analyze
+      makepdb
+        residue all
+        file_nm after_relax.pdb
+       end
+end
+
+cg_model
+   simp_to_expl_relax 1
+       simp_relax_steps 1 2
+         simp_mc_pt  1
+           ph 7
+           pt_temp 298.0
+           mc_steps 100000
+           step_save 1
+
+# Participated/protonated input
+# -----------------------------
+           participated_res all
+           protonated_res 3 11 40 41 43 48 50 83 107 119 121 122 127 156 161 198 203 207 208 209 212 244 254 255
+           dielec_const 80 0.5
+           dielec_factor 0.9 1
+           size_factor 0.044
+           cg_a_np_u_water 1.4
+
+           cg_radius 5 7
+
+#           mem_model 1 24.0 0.0 Z
+
+           pka_int_shift 0
+           to_from_bulk_fq 2
+           bulk_grid_rp 4.0
+           bulk_f_r 0.00 4.0
+
+         end     # End of  simp_mc_pt
+
+         md_parm_simp
+           temperature 300.0
+           nsteps_simp_gas 0
+           ss 0.0010
+           simple_c_scaling 1.0
+           nonbond_lj_uh 10 8
+           gas_phase 1
+           region2a_r 200.0
+           constraint_2 0.0
+
+           hb_simp_gas_parm 2.0 1.0 15.0
+
+           no_elong
+         end
+
+   end    # End of  simp_to_expl_relax 1
+
+ end   # End of CG_-1
+
+end     # End of MOLARIS

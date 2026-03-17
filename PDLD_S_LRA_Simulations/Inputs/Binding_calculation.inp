@@ -1,0 +1,57 @@
+./output/add_mem_PDLD/steep.pdb keepallh keephis
+polaris
+pre_pol
+   rest_in ./output/equil/restfq_000.25000 
+   ionres_half 237
+   ionres 263
+end
+  bind_pdld
+    reg1_res 283 
+    config 0 4   
+ 
+    md_parm_r
+      short_log
+      np 10000
+      stepsize 0.0001
+      ex_w_center 127.395 124.486 169.088 
+      water_r         20
+      region2a_r      20
+      langevin_r      22
+#      constraint_1 3.0
+      constraint_2 0.01
+      constraint_main 5.0
+      induce 1
+      indforce  1
+    end
+
+    md_parm_w
+      short_log
+      np 5000
+      stepsize 0.0001
+      ex_w_center 127.395 124.486 169.088 
+      water_r         20
+      region2a_r      20
+      langevin_r      22
+#      constraint_1 3.0
+      induce 1
+      indforce  1
+    end
+
+    md_parm_p
+      short_log
+      np 50000
+      stepsize 0.0001
+      ex_w_center 127.395 124.486 169.088 
+      water_r         20
+      region2a_r      20
+      langevin_r      22
+#      constraint_1 3.0
+      constraint_2 0.01
+      constraint_main 5.0
+      induce 1
+      indforce  1
+    end
+  end
+end
+end
+

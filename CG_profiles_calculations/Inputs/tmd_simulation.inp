@@ -1,0 +1,42 @@
+../steep_output/steep_0_3odu_i245a/steep.pdb keepallh keephis
+aa
+addbond 1 8 4062 
+addbond 1 1344 2604 
+end
+
+analyze
+    iontyp GLU
+    iontyp ASP
+    iontyp LYS
+    iontyp ARG
+end
+
+ez
+	relax
+ 		map_pf 151 1 2
+ 		relax_map_lambda 1.0 0.0
+ 		md_parm
+			pdb2_ave_r0_cons ../steep_output/steep_1_8u4o_i245a/steep.pdb 100.0
+    			ss 0.0001
+			nsteps 10000
+			temp 300
+			gas_phase 1
+			region2a_r 50
+			movie_co all
+			movie_fq 2000
+		end
+	end
+end
+aa
+   	makepdb
+		residue all
+		file_nm Attempt_of_Int.pdb
+	end
+
+
+	viewmovie
+           multiframe_pdb $OUT_DIR/movie.dat 151
+	end
+end
+end
+end

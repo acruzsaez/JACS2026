@@ -1,0 +1,116 @@
+./output/add_mem_PDLD/steep.pdb keepallh keephis
+aa
+     addbond 1 1246 2506 
+end
+
+enzymix
+  pre_enz
+    iontyp ASP
+    iontyp GLU
+    iontyp LYS
+    iontyp ARG
+   end
+
+    relax
+        rest_out equil_temp100.res
+
+        md_parm
+            short_log
+            nsteps          20000
+            ss              0.001
+            multi_temps     5 50 100
+            ex_w_center     127.395 124.486 169.088 
+	    water_r         20
+            region2a_r      20
+            langevin_r      22
+            constraint_2    10.0
+      end                                                         
+   end   
+end
+
+enzymix
+  pre_enz
+    rest_in  ./output/equil/equil_temp100.res
+    iontyp ASP
+    iontyp GLU
+    iontyp LYS
+    iontyp ARG
+   end
+
+    relax
+        rest_out equil_temp250.res
+
+        md_parm
+            short_log
+            nsteps          20000
+            ss              0.001
+            multi_temps     150 200 250
+            ex_w_center     127.395 124.486 169.088 
+            water_r         20
+            region2a_r      20
+            langevin_r      22
+            constraint_2    5.0
+      end                                                         
+   end   
+end
+
+
+enzymix
+  pre_enz
+    rest_in  ./output/equil/equil_temp250.res
+    iontyp ASP
+    iontyp GLU
+    iontyp LYS
+    iontyp ARG
+   end
+
+    relax
+        rest_out equil_temp300.res
+
+        md_parm
+            short_log
+            nsteps          100000
+            ss              0.001
+            temp            300
+            ex_w_center     127.395 124.486 169.088 
+            water_r         20
+            region2a_r      20
+            langevin_r      22
+            constraint_main 5.0
+      end                                                         
+   end   
+end
+
+analyze
+  makepdb
+    residue all
+    file_nm equil_15_temp300.pdb write_connect  
+  end
+end
+
+enzymix
+  pre_enz
+    rest_in  ./output/equil/equil_temp300.res
+    iontyp ASP
+    iontyp GLU
+    iontyp LYS
+    iontyp ARG
+   end
+
+    relax
+        rest_out prod.res
+
+        md_parm
+            short_log
+            nsteps          100000
+            ss              0.001
+            temp            300
+            ex_w_center     127.395 124.486 169.088 
+            water_r         20
+            region2a_r      20
+            langevin_r      22
+            constraint_main 5.0
+            rest_fq         25000
+      end                                                         
+   end   
+end

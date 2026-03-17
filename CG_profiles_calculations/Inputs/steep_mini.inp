@@ -1,0 +1,32 @@
+./variations/3odu_y302a.pdb
+aa
+addbond 1 8 4071 
+addbond 1 1344 2604 
+addbond 1 3316 3318 
+end
+
+
+enzymix
+  pre_enz
+    iontyp GLU
+    iontyp ASP
+    iontyp LYS
+    iontyp ARG
+end
+    relax
+
+        md_parm
+            short_log
+            nsteps          5000
+            ss              0.0001
+            temperature     5.0
+            steep_mini      5000
+            gas_phase       1
+            ex_w_center     133.087   129.930   164.084
+            region2a_r      50
+ 
+        end
+    end
+end
+end
+
