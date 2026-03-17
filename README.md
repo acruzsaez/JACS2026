@@ -38,7 +38,7 @@ METHODOLOGICAL INFORMATION
 (1) Instrument- or Software-Specific Information Needed to Interpret the Data
 
         Molaris-XG package
-        GROMACS2019 package
+        GROMACS2021 package
 
 FILE OVERVIEW
 -------------
