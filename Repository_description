@@ -56,6 +56,7 @@ Note: Input files are specified in the order in which they should be executed.
 			
 	/Parameters
 		File list:
+			  - HL82624_esp.gjf [Gaussian input file for HL82624 structure optimization and calculation of its partial charges]
 			  - HL82624.mol2 [Specific parameters developed for HL82624]
 
 	/Starting_Structures
@@ -70,6 +71,7 @@ Note: Input files are specified in the order in which they should be executed.
 			  - add_mem.inp [Incorporation of implicit membrane and subsequent minimization]
 			  - heating_equil.inp [Heating and equilibration MD simulation for a given intermediate conformation]
 			  - CG_calculation.inp [Minimization after system trimming and Coarse-Grained conformational free energy calculation]
+
 	/Starting_Structures
 		File list:
 			  - AMD3100_induced_CXCR4_active_state.pdb [Refined model for the AMD3100-induced CXCR4 active state]
@@ -88,11 +90,16 @@ Note: Input files are specified in the order in which they should be executed.
 			  - add_mem_PDLD.inp [Incorporation of implicit membrane and subsequent minimization]
 			  - heating_equil.inp [Heating and equilibration MD simulation for a given complex of HF51116 or its fragments with CXCR4]
 			  - Binding_calculation.inp [PDLD/S-LRA simulation to calculate the binding free energy of a given complex of HF51116 or its fragments with CXCR4]
+
 	/Parameters
 		File list:
+			  - F01_esp.gjf [Gaussian input file for F01 structure optimization and calculation of its partial charges]
+			  - F02_esp.gjf [Gaussian input file for F02 structure optimization and calculation of its partial charges]
+			  - HF51116_esp.gjf[Gaussian input file for HF51116 structure optimization and calculation of its partial charges]
 			  - F01.mol2 [Specific parameters developed for F01 fragment of HF51116]
 			  - F02.mol2 [Specific parameters developed for F02 fragment of HF51116]
 			  - HF51116.mol2 []Specific parameters developed for HF51116]
+
 	/Starting_Structures
 		File list:
 			  - F01_CXCR4.pdb [Refined model for the F01-bound CXCR4 inactive state]
