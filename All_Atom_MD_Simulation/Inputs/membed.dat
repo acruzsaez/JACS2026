@@ -1,0 +1,25 @@
+;
+;	File 'membed.dat' was generated
+;	By user: zhoujiao (501)
+;	On host: zhoujiaodeMacBook-Pro.local
+;	At date: Fri Oct 31 17:25:27 2025
+;
+;	Created by:
+;	                     :-) GROMACS - gmx mdrun, 2019.4 (-:
+;	
+;	Executable:   /Users/zhoujiao/Soft/Gromacs/build/bin/gmx
+;	Data prefix:  /Users/zhoujiao/Soft/Gromacs/build
+;	Working dir:  /Users/zhoujiao/Downloads/周姣的博士科研之路/独立PI之路/ax2
+;	Command line:
+;	  gmx mdrun -v -deffnm insert -membed membed.dat -mp topol.top
+nxy                      = 1000
+nz                       = 0
+xyinit                   = 0.100000
+xyend                    = 1.000000
+zinit                    = 1.000000
+zend                     = 1.000000
+rad                      = 0.20000
+ndiff                    = 0
+maxwarn                  = 10
+pieces                   = 1
+asymmetry                = no
