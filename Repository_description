@@ -48,14 +48,16 @@ Note: Input files are specified in the order in which they should be executed.
 /All_Atom_MD_Simulation
 	/Inputs
 		File list:
+			  - insert.mdp; ions.mdp; membed.dat [Insertion of the HL82624-CXCR4 complex into POPC membrane along with its solvation and charge neutralization]
 			  - em.mdp [Initial minimization]
 			  - heating_200ps.mdp [Heating to reach T = 300 K]
 			  - equil_200ns.mdp [Equilibration MD simulation]
-			  - prod_300ns.mdp [Producition MD simulation]
+			  - prod_300ns.mdp [Production MD simulation]
 			
 	/Parameters
 		File list:
 			  - HL82624.mol2 [Specific parameters developed for HL82624]
+
 	/Starting_Structures
 		File list:
 			  - HF82624_CXCR4_mem.gro [HL82624-CXCR4 complex embedded into POPC bilayer solveted with TIP3P waters]
@@ -63,7 +65,7 @@ Note: Input files are specified in the order in which they should be executed.
 /CG_profiles_calculations
 	/Inputs
 		 File list:
-                          - steep_mini.inp [Initial minimization of the refined model of a given CXCR4 endpoint state]
+              - steep_mini.inp [Initial minimization of the refined model of a given CXCR4 endpoint state]
 			  - tmd_simulation.inp [TMD simulation to generate intermediate conformations of a given CXCR4 activation process]
 			  - add_mem.inp [Incorporation of implicit membrane and subsequent minimization]
 			  - heating_equil.inp [Heating and equilibration MD simulation for a given intermediate conformation]
